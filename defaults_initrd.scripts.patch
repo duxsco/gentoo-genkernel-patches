@@ -1,0 +1,55 @@
+diff --git a/defaults/initrd.scripts b/defaults/initrd.scripts
+index 5ec8adb..ca76abc 100644
+--- a/defaults/initrd.scripts
++++ b/defaults/initrd.scripts
+@@ -1837,6 +1837,12 @@ openLUKS() {
+ 	local DEV_ERROR=0 KEY_ERROR=0 KEYDEV_ERROR=0
+ 	local mntkey="/mnt/key/" crypt_filter_ret=
+ 
++	if [ $2 -gt 0 ]
++	then
++		eval local LUKS_NAME="$1_$2"
++		eval local OPENED_LOCKFILE='"${CRYPT_'${TYPE}'_OPENED_LOCKFILE}_$2"'
++	fi
++
+ 	if [ -z "${LUKS_DEVICE}" ]
+ 	then
+ 		bad_msg "'crypt_${1}' kernel command-line argument is not set!"
+@@ -2344,7 +2350,11 @@ start_LUKS() {
+ 
+ 	if [ -n "${CRYPT_ROOT}" ]
+ 	then
+-		openLUKS "root"
++		local crypt_index=0
++		for CRYPT_ROOT in ${CRYPT_ROOTS}; do
++			openLUKS "root" ${crypt_index}
++			let crypt_index=${crypt_index}+1
++		done
+ 		if [ -n "${REAL_ROOT}" ]
+ 		then
+ 			# Rescan volumes
+@@ -2360,7 +2370,11 @@ start_LUKS() {
+ 
+ 	if [ -n "${CRYPT_SWAP}" ]
+ 	then
+-		openLUKS "swap"
++		local crypt_index=0
++		for CRYPT_SWAP in ${CRYPT_SWAPS}; do
++			openLUKS "swap" ${crypt_index}
++			let crypt_index=${crypt_index}+1
++		done
+ 		if [ -z "${REAL_RESUME}" ]
+ 		then
+ 			# Resume from swap as default
+@@ -2394,9 +2408,11 @@ start_sshd() {
+ 	write_env_file \
+ 		"${CRYPT_ENV_FILE}" \
+ 		CRYPT_ROOT \
++		CRYPT_ROOTS \
+ 		CRYPT_ROOT_OPTIONS \
+ 		CRYPT_SILENT \
+ 		CRYPT_SWAP \
++		CRYPT_SWAPS \
+ 		CRYPT_SWAP_OPTIONS
+ 
+ 	run touch /var/log/lastlog

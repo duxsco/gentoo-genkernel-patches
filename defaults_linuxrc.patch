@@ -1,0 +1,26 @@
+diff --git a/defaults/linuxrc b/defaults/linuxrc
+index 932df46..fa3e0b2 100644
+--- a/defaults/linuxrc
++++ b/defaults/linuxrc
+@@ -214,15 +214,17 @@ do
+ 			ISCSI_NOIBFT=1
+ 		;;
+ 		# Crypto
+-		crypt_root=*)
+-			CRYPT_ROOT=${x#*=}
++		crypt_root=*|crypt_roots=*)
++			CRYPT_ROOT=${CRYPT_ROOT:=${x#*=}}
++			CRYPT_ROOTS="${CRYPT_ROOTS} ${x#*=}"
+ 			USE_CRYPTSETUP=1
+ 		;;
+ 		crypt_root_options=*)
+ 			CRYPT_ROOT_OPTIONS=$(echo ${CRYPT_ROOT_OPTIONS} ${x#*=} | sed -e 's/,/ /g')
+ 		;;
+-		crypt_swap=*)
+-			CRYPT_SWAP=${x#*=}
++		crypt_swap=*|crypt_swaps=*)
++			CRYPT_SWAP=${CRYPT_SWAP:=${x#*=}}
++			CRYPT_SWAPS="${CRYPT_SWAPS} ${x#*=}"
+ 			USE_CRYPTSETUP=1
+ 		;;
+ 		crypt_swap_options=*)
