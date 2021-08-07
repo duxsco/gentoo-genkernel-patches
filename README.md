@@ -53,7 +53,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="${MY_CRYPT_ROOT} ${MY_CRYPT_SWAP} keymap=de"
 GRUB_ENABLE_CRYPTODISK="y"
 ```
 
-  4. I recommend the use of a key file, which is used by setting the kernel options `root_key=key` and `swap_key=key`:
+  4. I recommend the use of a key file given that the initramfs which contains the key file is stored on an encrypted boot partition. You need to set kernel options `root_key=key` and `swap_key=key` for the key file to be used:
 
 ```
 $ sudo -i mkdir -p /key/mnt/key
