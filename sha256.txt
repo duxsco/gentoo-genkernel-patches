@@ -1,0 +1,2 @@
+067c3f5e7ce7b8ddb0555d106c1c8217b0a5338dd8da5469680d4b5b247a1f0a  defaults_initrd.scripts.patch
+706cfb28d2f1014d6eff943b45bf0934859cb38b3ed7d8be41d2b4b66a266ee5  defaults_linuxrc.patch
