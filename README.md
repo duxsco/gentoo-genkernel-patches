@@ -3,6 +3,8 @@
 These patches allow for the decryption of multiple LUKS encrypted root and swap devices. They are based upon:
 https://bugs.gentoo.org/694778
 
+Step by step instructions can be found at https://github.com/duxco/gentoo-installation#kernel
+
   1. Store the files under:
 
 ```bash
