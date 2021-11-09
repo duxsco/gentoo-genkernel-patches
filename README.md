@@ -64,3 +64,7 @@ $ sudo -i cryptsetup luksAddKey --key-file /key/mnt/key/key /dev/firstRoot
 etc.
 ```
   5. `INITRAMFS_OVERLAY="/key"` must be set in `/etc/genkernel.conf`.
+
+## Other Gentoo Linux repos
+
+https://github.com/duxsco?tab=repositories&q=gentoo-
