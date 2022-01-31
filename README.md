@@ -3,6 +3,8 @@
 These patches allow for the decryption of multiple LUKS encrypted root and swap devices. They are based upon:
 https://bugs.gentoo.org/694778
 
+Patch 02 is optional. It has been created in addition and allows for the [remote decryption over ssh](https://github.com/duxsco/gentoo-installation#remote-unlock) with the use of [dosshd](https://wiki.gentoo.org/wiki/Handbook:AMD64/Blocks/Booting).
+
 Step by step instructions can be found at https://github.com/duxsco/gentoo-installation#kernel
 
   1. Store the files under:
@@ -10,8 +12,9 @@ Step by step instructions can be found at https://github.com/duxsco/gentoo-insta
 ```bash
 $ tree /etc/portage/patches/sys-kernel/genkernel
 /etc/portage/patches/sys-kernel/genkernel
-├── defaults_initrd.scripts.patch
-└── defaults_linuxrc.patch
+├── 00_defaults_linuxrc.patch
+├── 01_defaults_initrd.scripts.patch
+└── 02_defaults_initrd_dosshd.scripts.patch
 
 0 directories, 2 files
 $ chown -R root: /etc/portage/patches
