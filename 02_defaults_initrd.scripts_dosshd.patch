@@ -1,12 +1,26 @@
 diff --git a/defaults/initrd.scripts b/defaults/initrd.scripts
-index 4ea968a..61e3455 100644
+index 4ea968a..719c27f 100644
 --- a/defaults/initrd.scripts
 +++ b/defaults/initrd.scripts
-@@ -2329,6 +2329,10 @@ start_LUKS() {
+@@ -1011,6 +1011,12 @@ run_debug_shell() {
+ }
+ 
+ run_emergency_shell() {
++
++	if [ "${USE_SSH}" = '1' ]; then
++		warn_msg 'Shell not required due to "dosshd"!'
++		return 0
++	fi
++
+ 	if is_userinteraction_allowed
+ 	then
+ 		echo
+@@ -2329,6 +2335,11 @@ start_LUKS() {
  	# if key is set but neither ssh enabled or key device is given, find
  	# the key device
  
 +	if [ "${USE_SSH}" = '1' ]; then
++		warn_msg 'Auto/prompt LUKS unlock not required due to "dosshd"!'
 +		return 0
 +	fi
 +
