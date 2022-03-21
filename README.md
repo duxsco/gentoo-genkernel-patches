@@ -5,7 +5,7 @@ https://bugs.gentoo.org/694778
 
 Patch 02 is optional. It has been created in addition and allows for the [remote decryption over ssh](https://github.com/duxsco/gentoo-installation#remote-unlock) with the use of [dosshd](https://wiki.gentoo.org/wiki/Handbook:AMD64/Blocks/Booting).
 
-Step by step instructions can be found at https://github.com/duxsco/gentoo-installation#kernel
+Step by step instructions can be found at https://github.com/duxsco/gentoo-installation#genkernel-patches
 
   1. Store the files under:
 
