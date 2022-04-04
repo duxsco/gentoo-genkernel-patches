@@ -1,8 +1,8 @@
 diff --git a/defaults/initrd.scripts b/defaults/initrd.scripts
-index 5ec8adb..ca76abc 100644
+index 7eac8924a3aaa4ccd70cc9436cc5d1dc00d29c16..4ea968a92f9040412d67c58420ee35822d0109e9 100644
 --- a/defaults/initrd.scripts
 +++ b/defaults/initrd.scripts
-@@ -1837,6 +1837,12 @@ openLUKS() {
+@@ -1817,6 +1817,12 @@ openLUKS() {
  	local DEV_ERROR=0 KEY_ERROR=0 KEYDEV_ERROR=0
  	local mntkey="/mnt/key/" crypt_filter_ret=
  
@@ -15,7 +15,7 @@ index 5ec8adb..ca76abc 100644
  	if [ -z "${LUKS_DEVICE}" ]
  	then
  		bad_msg "'crypt_${1}' kernel command-line argument is not set!"
-@@ -2344,7 +2350,11 @@ start_LUKS() {
+@@ -2328,7 +2334,11 @@ start_LUKS() {
  
  	if [ -n "${CRYPT_ROOT}" ]
  	then
@@ -28,7 +28,7 @@ index 5ec8adb..ca76abc 100644
  		if [ -n "${REAL_ROOT}" ]
  		then
  			# Rescan volumes
-@@ -2360,7 +2370,11 @@ start_LUKS() {
+@@ -2344,7 +2354,11 @@ start_LUKS() {
  
  	if [ -n "${CRYPT_SWAP}" ]
  	then
@@ -41,7 +41,7 @@ index 5ec8adb..ca76abc 100644
  		if [ -z "${REAL_RESUME}" ]
  		then
  			# Resume from swap as default
-@@ -2394,9 +2408,11 @@ start_sshd() {
+@@ -2378,9 +2392,11 @@ start_sshd() {
  	write_env_file \
  		"${CRYPT_ENV_FILE}" \
  		CRYPT_ROOT \

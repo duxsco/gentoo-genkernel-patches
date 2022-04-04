@@ -1,5 +1,5 @@
 diff --git a/defaults/initrd.scripts b/defaults/initrd.scripts
-index 4ea968a..719c27f 100644
+index 4ea968a92f9040412d67c58420ee35822d0109e9..719c27f85ef8488f9d5ce60c61537539a1094ad6 100644
 --- a/defaults/initrd.scripts
 +++ b/defaults/initrd.scripts
 @@ -1011,6 +1011,12 @@ run_debug_shell() {

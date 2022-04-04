@@ -1,5 +1,5 @@
 diff --git a/defaults/linuxrc b/defaults/linuxrc
-index 932df46..fa3e0b2 100644
+index 6ede7401bbcb874b4b01d15a6f06e08e697419b2..dfb8099c145e6cdcbb0e2cfffb94411fc50790e8 100644
 --- a/defaults/linuxrc
 +++ b/defaults/linuxrc
 @@ -214,15 +214,17 @@ do
