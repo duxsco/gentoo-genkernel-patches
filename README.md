@@ -16,7 +16,7 @@ $ tree /etc/portage/patches/sys-kernel/genkernel
 ├── 01_defaults_initrd.scripts.patch
 └── 02_defaults_initrd.scripts_dosshd.patch
 
-0 directories, 2 files
+0 directories, 3 files
 $ chown -R root: /etc/portage/patches
 ```
 
