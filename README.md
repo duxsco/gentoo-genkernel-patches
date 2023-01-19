@@ -1,5 +1,7 @@
 # genkernel-patches
 
+> ️⚠️ You can find information on my GnuPG public key in my [GitHub profile README](https://github.com/duxsco/)! ⚠️
+
 These patches allow for the decryption of multiple LUKS encrypted root and swap devices. They are based upon:
 https://bugs.gentoo.org/694778
 
