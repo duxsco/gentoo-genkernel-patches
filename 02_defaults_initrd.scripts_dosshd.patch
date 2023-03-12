@@ -1,8 +1,8 @@
 diff --git a/defaults/initrd.scripts b/defaults/initrd.scripts
-index 4ea968a92f9040412d67c58420ee35822d0109e9..719c27f85ef8488f9d5ce60c61537539a1094ad6 100644
+index 5d96aea96225554f85cf25d5ddda51cdab4f2606..891eb2f4e0ec1bfce1c0b91868c3ae652577acfc 100644
 --- a/defaults/initrd.scripts
 +++ b/defaults/initrd.scripts
-@@ -1011,6 +1011,12 @@ run_debug_shell() {
+@@ -1019,6 +1019,12 @@ run_debug_shell() {
  }
  
  run_emergency_shell() {
@@ -15,15 +15,15 @@ index 4ea968a92f9040412d67c58420ee35822d0109e9..719c27f85ef8488f9d5ce60c61537539
  	if is_userinteraction_allowed
  	then
  		echo
-@@ -2329,6 +2335,11 @@ start_LUKS() {
- 	# if key is set but neither ssh enabled or key device is given, find
- 	# the key device
+@@ -2495,6 +2501,11 @@ start_LUKS_root() {
+ 	# if key/header is set but neither ssh enabled or key device is given, find
+ 	# the key/header device
  
 +	if [ "${USE_SSH}" = '1' ]; then
 +		warn_msg 'Auto/prompt LUKS unlock not required due to "dosshd"!'
 +		return 0
 +	fi
 +
- 	[ -n "${CRYPT_ROOT_KEY}" ] && [ -z "${CRYPT_ROOT_KEYDEV}" ] \
- 		&& sleep 6 && bootstrapKey "ROOT"
- 
+ 	if (
+ 		[ -n "${CRYPT_ROOT_KEY}" -a -z "${CRYPT_ROOT_KEYDEV}" ] ||
+ 		[ -n "${CRYPT_ROOT_HEADER}" -a -z "${CRYPT_ROOT_HEADERDEV}" ]
